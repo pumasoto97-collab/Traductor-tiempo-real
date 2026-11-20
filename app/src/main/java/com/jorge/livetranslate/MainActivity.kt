@@ -1,4 +1,5 @@
 package com.jorge.livetranslate
+import com.jorge.livetranslate.R
 
 import android.graphics.Color
 import android.os.Bundle
