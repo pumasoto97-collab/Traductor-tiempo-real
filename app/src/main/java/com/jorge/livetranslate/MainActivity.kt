@@ -9,7 +9,6 @@ import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
-import com.jorge.livetranslate.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,25 +29,15 @@ class MainActivity : AppCompatActivity() {
         val btnIniciarTraductor = findViewById<Button>(R.id.btnIniciarTraductor)
 
         val idiomas = listOf(
-            "Inglés",
-            "Español",
-            "Francés",
-            "Alemán",
-            "Italiano",
-            "Portugués",
-            "Japonés",
-            "Coreano"
+            "Inglés", "Español", "Francés", "Alemán", 
+            "Italiano", "Portugués", "Japonés", "Coreano"
         )
 
         val codigos = listOf(
-            TranslateLanguage.ENGLISH,
-            TranslateLanguage.SPANISH,
-            TranslateLanguage.FRENCH,
-            TranslateLanguage.GERMAN,
-            TranslateLanguage.ITALIAN,
-            TranslateLanguage.PORTUGUESE,
-            TranslateLanguage.JAPANESE,
-            TranslateLanguage.KOREAN
+            TranslateLanguage.ENGLISH, TranslateLanguage.SPANISH,
+            TranslateLanguage.FRENCH, TranslateLanguage.GERMAN,
+            TranslateLanguage.ITALIAN, TranslateLanguage.PORTUGUESE,
+            TranslateLanguage.JAPANESE, TranslateLanguage.KOREAN
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, idiomas)
