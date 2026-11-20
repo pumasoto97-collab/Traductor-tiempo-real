@@ -117,3 +117,4 @@ class MainActivity : AppCompatActivity() {
         translator?.close()
     }
 }
+import com.jorge.livetranslate.R
