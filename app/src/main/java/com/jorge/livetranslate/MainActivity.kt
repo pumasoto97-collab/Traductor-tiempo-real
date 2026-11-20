@@ -9,6 +9,7 @@ import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
+import com.jorge.livetranslate.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,17 +27,17 @@ class MainActivity : AppCompatActivity() {
         val tvOpacidadLabel = findViewById<TextView>(R.id.tvOpacidadLabel)
         val tvVistaPrevia = findViewById<TextView>(R.id.tvVistaPrevia)
         val etPruebaTexto = findViewById<EditText>(R.id.etPruebaTexto)
-        val btnIniciar = findViewById<Button>(R.id.btnIniciarTraductor)
+        val btnIniciarTraductor = findViewById<Button>(R.id.btnIniciarTraductor)
 
         val idiomas = listOf(
-            "🇺🇸 Inglés",
-            "🇲🇽 Español",
-            "🇫🇷 Francés",
-            "🇩🇪 Alemán",
-            "🇯🇵 Japonés",
-            "🇧🇷 Portugués",
-            "🇮🇹 Italiano",
-            "🇰🇷 Coreano"
+            "Inglés",
+            "Español",
+            "Francés",
+            "Alemán",
+            "Italiano",
+            "Portugués",
+            "Japonés",
+            "Coreano"
         )
 
         val codigos = listOf(
@@ -44,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             TranslateLanguage.SPANISH,
             TranslateLanguage.FRENCH,
             TranslateLanguage.GERMAN,
-            TranslateLanguage.JAPANESE,
-            TranslateLanguage.PORTUGUESE,
             TranslateLanguage.ITALIAN,
+            TranslateLanguage.PORTUGUESE,
+            TranslateLanguage.JAPANESE,
             TranslateLanguage.KOREAN
         )
 
@@ -76,17 +77,17 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        btnIniciar.setOnClickListener {
+        btnIniciarTraductor.setOnClickListener {
             val langOrigen = codigos[spinnerOrigen.selectedItemPosition]
             val langDestino = codigos[spinnerDestino.selectedItemPosition]
             val texto = etPruebaTexto.text.toString().ifBlank { "Hello, welcome to VoxSub AI" }
 
             tvVistaPrevia.text = "Descargando modelo IA..."
-            ejecutarTraduccionIA(langOrigen, langDestino, texto, tvVistaPrevia)
+            ejecutarTraduccion(langOrigen, langDestino, texto, tvVistaPrevia)
         }
     }
 
-    private fun ejecutarTraduccionIA(origen: String, destino: String, texto: String, salida: TextView) {
+    private fun ejecutarTraduccion(origen: String, destino: String, texto: String, salida: TextView) {
         translator?.close()
 
         val options = TranslatorOptions.Builder()
@@ -99,6 +100,7 @@ class MainActivity : AppCompatActivity() {
 
         translator?.downloadModelIfNeeded(conditions)
             ?.addOnSuccessListener {
+                salida.text = "Traduciendo..."
                 translator?.translate(texto)
                     ?.addOnSuccessListener { textoTraducido ->
                         salida.text = textoTraducido
@@ -117,4 +119,3 @@ class MainActivity : AppCompatActivity() {
         translator?.close()
     }
 }
-import com.jorge.livetranslate.R
