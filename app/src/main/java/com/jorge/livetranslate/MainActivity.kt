@@ -1,5 +1,4 @@
 package com.jorge.livetranslate
-import com.jorge.livetranslate.R
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +9,7 @@ import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
+import com.jorge.livetranslate.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val btnIniciarTraductor = findViewById<Button>(R.id.btnIniciarTraductor)
 
         val idiomas = listOf(
-            "Inglés", "Español", "Francés", "Alemán", 
+            "Inglés", "Español", "Francés", "Alemán",
             "Italiano", "Portugués", "Japonés", "Coreano"
         )
 
@@ -109,3 +109,4 @@ class MainActivity : AppCompatActivity() {
         translator?.close()
     }
 }
+
